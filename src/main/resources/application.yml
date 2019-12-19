@@ -1,0 +1,15 @@
+# Server Configuration
+server:
+   port: 8082
+   servlet:
+      comtext-path: "/"
+      
+# Active Profile Configuration
+spring:
+   profiles:
+      active: test
+
+mybatis:
+   config-location: classpath:/mybatis-config.xml
+   mapper-locations: classpath:mapper/*.xml
+   type-aliases-package: com.yiran.mtodoList.bean
