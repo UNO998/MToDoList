@@ -1,0 +1,6 @@
+spring:
+   datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql:///mtodolist?useUnicode=true&characterEncoding=UTF-8
+      username: username
+      password: password

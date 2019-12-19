@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<script>
+$(function() {
+	var TodayDate = new Date();      
+	$('#record_date').datepicker('setValue', TodayDate);    
+});
+</script>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Save Task</title>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<h3>Task Directory</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Task</p>
+	
+		<form action="#" th:action="@{/tasks/save}"
+						 th:object="${task}" method="POST">
+		
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			
+			<div class="form-inline">
+				<input type="text" th:field="*{title}"
+						class="form-control mb-4 col-4" placeholder="Title">
+			
+				<!-- Add error message (if present) -->
+				<span th:if="${#fields.hasErrors('title')}"
+					  th:errors="*{title}"
+					  class="badge badge-danger ml-2 mb-4"></span>
+				
+			</div>
+			
+			<div class="form-inline">
+			
+				<input type="text" th:field="*{description}"
+						class="form-control mb-4 col-4" placeholder="Description">
+
+				<!-- Add error message (if present) -->
+				<span th:if="${#fields.hasErrors('description')}"
+					  th:errors="*{description}"
+					  class="badge badge-danger ml-2 mb-4"></span>
+
+			</div>
+			
+			<div class="form-inline">
+			
+				<input type="datetime" th:field="*{dueDate}"
+						class="form-control mb-4 col-4" placeholder="yyyy-mm-dd hh:mm:ss">
+				
+				<!-- Add error message (if present) -->
+				<span th:if="${#fields.hasErrors('dueDate')}"
+					  th:errors="*{dueDate}"
+					  class="badge badge-danger ml-2 mb-4"></span>
+
+			</div>
+		
+			
+			<div class="form-inline">
+			
+				<!-- <input type="text" th:field="*{state}"
+						class="form-control mb-4 col-4" placeholder="State"> -->
+				
+				<select th:field="*{state}" 
+							class="form-control mb-4 col-4">
+				    <option th:value="0" th:text="0--Done"></option>
+				    <option th:value="1" th:text="1--Ready"></option>
+				    <option th:value="2" th:text="2--Pending"></option>
+				</select>
+				
+				<!-- Add error message (if present) -->
+				<span th:if="${#fields.hasErrors('state')}"
+					  th:errors="*{state}"
+					  class="badge badge-danger ml-2 mb-4"></span>
+
+			</div>
+			
+			
+							
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/tasks/list}">Back to Tasks List</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
