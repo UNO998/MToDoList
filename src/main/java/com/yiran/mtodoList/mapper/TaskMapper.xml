@@ -14,4 +14,9 @@
 		title=#{title},description=#{description},dueDate=#{dueDate},state=#{state} 
 		WHERE id=#{id}
 	</update>
+	
+	<select id="getTaskById" parameterType="Long" resultType="com.yiran.mtodoList.bean.Task">
+        SELECT id,title,description,dueDate,state FROM task
+        WHERE id=#{id}
+    </select>
 </mapper>

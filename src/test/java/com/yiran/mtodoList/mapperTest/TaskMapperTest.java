@@ -49,5 +49,18 @@ class TaskMapperTest {
 		System.out.println(task);
 		Assert.assertEquals(1, mapper.updateTask(task));
 	}
+	
+	@Test
+	void testGetTaskById() {
+		Task task = mapper.getTaskById(1L);
+		
+		if (task != null) {
+			Assert.assertEquals("Meet Doc Joey", task.getTitle());
+			Assert.assertEquals("Need to discuss my essay with Dr Joey", task.getDescription());
+			Assert.assertEquals(0, (int)task.getState());
+		} else {
+			Assert.fail();
+		}
+	}
 
 }
