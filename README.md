@@ -34,10 +34,6 @@ One way is to execute the `main` method from your IDE.
 
 Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) like so:
 
-```shell
-mvn spring-boot:run
-```
-
 ### Thymeleaf webs
 
 To monitor and manage your application
