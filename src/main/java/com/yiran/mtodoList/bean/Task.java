@@ -2,6 +2,8 @@ package com.yiran.mtodoList.bean;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,6 +15,7 @@ import lombok.Data;
 @Builder
 public class Task {
 	
+	@NotNull
 	private Long id;
 	private String title;
 	private String description;
