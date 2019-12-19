@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yiran.mtodoList.bean.Task;
@@ -100,5 +101,25 @@ public class TaskRestController {
 		} else {
 			return ResponseEntity.ok().body(result);
 		}
+	}
+	
+	@GetMapping("/tasks/search")
+	Collection<Task> searchTasksByKeyWords(
+										@RequestParam(required = false) String title,
+										@RequestParam(required = false) String description,
+										@RequestParam(required = false) String dueDate,
+										@RequestParam(required = false) String state
+										) {
+		log.info("Request to search tasks by title={}, description={}, dueDate={}, state={}", title, description, dueDate, state);
+		
+		List<Task> theTasks = taskService.searchTasksByKeywords(title, description, dueDate, state);
+		
+		if (theTasks == null) {
+			return new ArrayList<Task>();
+		} else {
+			return theTasks;
+		}
+		
+		
 	}
 }
