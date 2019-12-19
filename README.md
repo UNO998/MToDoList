@@ -8,10 +8,12 @@ A task management application with basic REST API and operation front-end web.
 * 	[JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Java™ Platform, Standard Edition Development Kit 
 * 	[Spring Boot](https://spring.io/projects/spring-boot) - Framework to ease the bootstrapping and development of new Spring Applications
 * 	[MySQL](https://www.mysql.com/) - Open-Source Relational Database Management System
+* 	[H2 Database](https://www.h2database.com/html/main.html) - Open-Source In-Memory Database
 * 	[git](https://git-scm.com/) - Free and Open-Source distributed version control system 
 * 	[Thymeleaf](https://www.thymeleaf.org/) - Modern server-side Java template engine for both web and standalone environments.
 * 	[Lombok](https://projectlombok.org/) - Never write another getter or equals method again, with one annotation your class has a fully featured builder, Automate your logging variables, and much more.
 * 	[MyBatis](https://mybatis.org/mybatis-3/) - MyBatis is a first class persistence framework with support for custom SQL, stored procedures and advanced mappings.
+
 
 ## External Tools Used
 
@@ -35,19 +37,6 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 ```shell
 mvn spring-boot:run
 ```
-
-### Security
-
-```
-<dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-security</artifactId>
-</dependency>
-```
-
-Spring Boot Starter Security default username is `user` and a generated security password is printed in the console like `Using generated security password: 0423bec1-6759-4ed2-8e3e-e8196effadf9`
-
-Automated dependency updates done via [Dependabot](https://dependabot.com/)
 
 ### Actuator
 
