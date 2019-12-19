@@ -71,7 +71,7 @@ public class TaskWebController {
 	
 	@PostMapping("/save")
 	public String addTask(
-			@ModelAttribute("task") @Valid Task theTask,
+			@ModelAttribute("task") Task theTask,
 			BindingResult bindingResult) {
 		
 		if (bindingResult.hasErrors()) {
@@ -88,5 +88,16 @@ public class TaskWebController {
 			// use a redirect to prevent duplicate submissions
 			return "redirect:/tasks/list";
 		}
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("taskId") Long theId) {
+		
+		// delete the employee
+		taskService.deleteTaskById(theId);
+		
+		// redirect to /employees/list
+		return "redirect:/tasks/list";
+		
 	}
 }
