@@ -3,6 +3,7 @@ package com.yiran.mtodoList.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.yiran.mtodoList.bean.Task;
 
@@ -23,4 +24,9 @@ public interface TaskMapper {
 	int deleteTaskById(Long tid);
 	
 	List<Task> getAllTasks();
+	
+	List<Task> searchTasksByKeywords(@Param("title") String title, 
+									 @Param("description") String description, 
+									 @Param("dueDate") String dueDate,
+									 @Param("state") Integer state);
 }

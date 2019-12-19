@@ -28,4 +28,25 @@
     <select id="getAllTasks" resultType="com.yiran.mtodoList.bean.Task">
         SELECT * FROM task
     </select>
+    
+        
+    <!-- Search tasks by title, description, dueDate, state -->
+    <select id="searchTasksByKeywords" resultType="com.yiran.mtodoList.bean.Task">
+    	SELECT * FROM task WHERE id!=0
+    	<if test="title!=null">
+    		AND LOWER(title) LIKE concat('%',#{title},'%')
+    	</if>
+    	
+    	<if test="description!=null">
+    		AND LOWER(description) LIKE concat('%',#{description},'%')
+    	</if>
+    	
+    	<if test="dueDate!=null">
+    		AND DATE(dueDate)=#{dueDate}
+    	</if>
+    	
+    	<if test="state!=null">
+    		AND state LIKE concat('%',#{state},'%')
+    	</if>
+    </select>
 </mapper>
