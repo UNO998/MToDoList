@@ -19,4 +19,9 @@
         SELECT id,title,description,dueDate,state FROM task
         WHERE id=#{id}
     </select>
+    
+    <delete id="deleteTaskById">
+        DELETE FROM task 
+        WHERE id=#{id}  
+    </delete>
 </mapper>

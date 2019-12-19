@@ -17,4 +17,6 @@ public interface TaskMapper {
 	int updateTask(Task task);
 	
 	Task getTaskById(Long tid);
+	
+	int deleteTaskById(Long tid);
 }

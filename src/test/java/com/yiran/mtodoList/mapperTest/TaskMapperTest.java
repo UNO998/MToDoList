@@ -62,5 +62,10 @@ class TaskMapperTest {
 			Assert.fail();
 		}
 	}
+	
+	@Test
+	void testDeleteTaskById() {
+		Assert.assertEquals(1, mapper.deleteTaskById(2L));
+	}
 
 }
