@@ -9,4 +9,9 @@
 		title=#{title},description=#{description},dueDate=#{dueDate},state=#{state}
 	</insert>
 
+	<update id="updateTask">
+		UPDATE task SET 
+		title=#{title},description=#{description},dueDate=#{dueDate},state=#{state} 
+		WHERE id=#{id}
+	</update>
 </mapper>

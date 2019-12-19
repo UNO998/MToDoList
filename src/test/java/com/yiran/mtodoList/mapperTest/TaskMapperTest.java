@@ -12,6 +12,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.yiran.mtodoList.bean.Task;
 import com.yiran.mtodoList.mapper.TaskMapper;
 
+/**
+ * Created by Yiran in Dec. 19, 2019
+ */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class TaskMapperTest {
@@ -30,6 +34,20 @@ class TaskMapperTest {
 		
 		System.out.println(task);
 		Assert.assertEquals(1, mapper.addTask(task));
+	}
+	
+	@Test
+	void testUpdateTask() {
+		Task task = Task.builder()
+							 .id(2L)
+							 .title("Play baseball")
+							 .description("Go to college station with John")
+							 .dueDate(new Timestamp(System.currentTimeMillis()))
+							 .state(0)
+							 .build();
+		
+		System.out.println(task);
+		Assert.assertEquals(1, mapper.updateTask(task));
 	}
 
 }

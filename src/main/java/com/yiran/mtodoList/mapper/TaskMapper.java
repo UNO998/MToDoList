@@ -12,6 +12,7 @@ import com.yiran.mtodoList.bean.Task;
 @Mapper
 public interface TaskMapper {
 	
-	// add one task to database
 	int addTask(Task task);
+
+	int updateTask(Task task);
 }
