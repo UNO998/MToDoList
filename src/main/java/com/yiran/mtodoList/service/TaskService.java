@@ -40,4 +40,36 @@ public class TaskService {
 	public List<Task> getAllTasks() {
 		return taskMapper.getAllTasks();
 	}
+	
+	
+	public List<Task> searchTasksByKeywords( String title, 
+									  String description, 
+									  String dueDate,
+									  String state) {
+		
+		if (dueDate == null || dueDate.length() == 0) {
+			dueDate = null;
+		}
+		
+		// convert title, description to lower case to search
+		if (title != null) {
+			title.toLowerCase();
+		}
+		
+		if (description != null) {
+			description.toLowerCase();
+		}
+		
+		Integer intState = null;
+		try {
+			
+			intState = Integer.parseInt(state);
+			
+		} catch(NumberFormatException e) {
+			
+		} catch(NullPointerException e) {
+			
+		}
+		return taskMapper.searchTasksByKeywords(title, description, dueDate, intState);
+	}
 }

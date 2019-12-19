@@ -74,4 +74,12 @@ class TaskMapperTest {
 		List<Task> taskList = mapper.getAllTasks();
 		Assert.assertEquals(6, taskList.size());
 	}
+	
+	@Test
+	void testSearchTasksByKeyWords() {
+
+		List<Task> taskList = mapper.searchTasksByKeywords("joey", "essay", "2019-12-24", 0);
+
+		Assert.assertEquals(1, taskList.size());
+	}
 }
