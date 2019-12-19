@@ -1,6 +1,6 @@
 # MToDoList
 
-A task management application with basic REST API and operation front-end web.
+A task management application with basic REST API and thymeleaf web.
 
 ## Built With
 
