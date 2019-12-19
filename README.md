@@ -38,119 +38,52 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 mvn spring-boot:run
 ```
 
-### Actuator
+### Thymeleaf webs
 
 To monitor and manage your application
 
 |  URL |  Method |
 |----------|--------------|
-|`http://localhost:8080`  						| GET |
-|`http://localhost:8080/actuator/actuator`  | GET |
-|`http://localhost:8080/actuator/health`    	| GET |
-|`http://localhost:8080/actuator/info`      	| GET |
-|`http://localhost:8080/actuator/prometheus`| GET |
-|`http://localhost:8080/actuator/httptrace` | GET |
+|`http://localhost:8081`  						         | GET |
+|`http://localhost:8081/tasks/list`  		         | GET |
+|`http://localhost:8081/tasks/showFormForAdd`  		| GET |
+|`http://localhost:8081/tasks/showFormForUpdate`  	| GET |
+|`http://localhost:8081/tasks/save`  		         | POST |
+|`http://localhost:8081/tasks/delete`  		      | GET |
+|`http://localhost:8081/tasks/search`  		      | GET |
 
-### URLs
+### REST API
 
-|  URL |  Method | Remarks |
-|----------|--------------|--------------|
-|`http://localhost:8080/bw/tech-stack`                           | GET | Custom Response Headers|
-|`http://localhost:8080/api/generic-hello`                       | GET | |
-|`http://localhost:8080/api/personalized-hello/`                 | GET | |
-|`http://localhost:8080/api/personalized-hello?name=spring-boot` | GET | |
-|`http://localhost:8080/api/loggers`                             | GET | |
-
+|  URL |  Method |
+|----------|--------------|
+|`http://localhost:8081/api/task`  						| POST |
+|`http://localhost:8081/api/task/{tid}`  				| GET |
+|`http://localhost:8081/api/tasks`  					| GET |
+|`http://localhost:8081/api/task`  						| PUT |
+|`http://localhost:8081/api/task/{tid}`  				| DELETE |
+|`http://localhost:8081/api/tasks/search`  			| GET |
 
 ## Documentation
 
-* [Postman Collection](https://documenter.getpostman.com/view/2449187/RWTiwzb2) - online, with code auto-generated snippets in cURL, jQuery, Ruby,Python Requests, Node, PHP and Go programming languages
-* [Postman Collection](https://github.com/AnanthaRajuC/Spring-Boot-Application-Template/blob/master/Spring%20Boot%20Template.postman_collection.json) - offline
-* [Swagger](http://localhost:8088/swagger-ui.html) - Documentation & Testing
-
-## Files and Directories
-
-The project (a.k.a. project directory) has a particular directory structure. A representative project is shown below:
-
-```
-.
-├── Spring Elements
-├── src
-│   └── main
-│       └── java
-│           ├── com.arc.application
-│           ├── com.arc.application.config
-│           ├── com.arc.application.controller
-│           ├── com.arc.application.exception
-│           ├── com.arc.application.model
-│           ├── com.arc.application.util
-│           ├── com.arc.application.repository
-│           └── com.arc.application.service
-├── src
-│   └── main
-│       └── resources
-│           └── static
-│           │   ├── css
-│           │   │   └── bootstrap.css
-│           │   ├── images
-│           │   ├── js
-│           │   ├── favicon.ico
-│           │   └── index.html
-│           ├── templates
-│           │   └── view.html
-│           ├── application.properties
-│           ├── banner.txt
-│           └── log4j2.xml
-├── src
-│   └── test
-│       └── java
-├── JRE System Library
-├── Maven Dependencies
-├── bin
-├── logs
-│   └── application.log
-├── src
-├── target
-│   └──application-0.0.1-SNAPSHOT
-├── mvnw
-├── mvnw.cmd
-├── pom.xml
-└── README.md
-```
+* [Postman Collection](https://www.getpostman.com/collections/5ce3eedc5306221d843e)
 
 ## packages
 
-- `models` — to hold our entities;
-- `repositories` — to communicate with the database;
-- `services` — to hold our business logic;
-- `controllers` — to listen to the client;
+- `bean` — to hold our entities;
+- `mapper` — to communicate with the database;
+- `service` — to hold our business logic;
+- `webControllers` — to listen to the client;
+- `restControllers` — to listen to the client and provide Rest APIs;
 
 - `resources/` - Contains all the static resources, templates and property files.
 - `resources/static` - contains static resources such as css, js and images.
+- `resources/sql` - contains sql to initial MySQL or H2 database
 - `resources/templates` - contains server-side templates which are rendered by Spring.
-- `resources/application.properties` - It contains application-wide properties. Spring reads the properties defined in this file to configure your application. You can define server’s default port, server’s context path, database URLs etc, in this file.
-
+- `resources/application.yml` - It contains application-wide properties. Spring reads the properties defined in this file to configure your application.
+- `resources/application-dev.yml` - It contains mysql database configuration including setup username and password to access your local MySQL database.
+- `resources/application-test.yml` - It contains H2 database configuration.
 - `test/` - contains unit and integration tests
 
 - `pom.xml` - contains all the project dependencies
- 
-## Reporting Issues
-
-This Project uses GitHub's integrated issue tracking system to record bugs and feature requests. If you want to raise an issue, please follow the recommendations below:
-
-* Before you log a bug, please https://github.com/AnanthaRajuC/Spring-Boot-Application-Template/search?type=Issues[search the issue tracker]
-  to see if someone has already reported the problem.
-* If the issue doesn't already exist, https://github.com/AnanthaRajuC/Spring-Boot-Application-Template/issues/new[create a new issue]. 
-* Please provide as much information as possible with the issue report.
-* If you need to paste code, or include a stack trace use Markdown +++```+++ escapes before and after your text. 
-  
-## Resources
-
-* [My API Lifecycle Checklist and Scorecard](https://dzone.com/articles/my-api-lifecycle-checklist-and-scorecard)
-* [HTTP Status Codes](https://www.restapitutorial.com/httpstatuscodes.html)
-* [Bootstrap w3schools](https://www.w3schools.com/bootstrap/)
-* [Common application properties](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
-
 
 ## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSpring-Boot-Framework%2FSpring-Boot-Application-Template.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSpring-Boot-Framework%2FSpring-Boot-Application-Template?ref=badge_large)
