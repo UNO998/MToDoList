@@ -26,12 +26,12 @@ class TaskMapperTest {
 	
 	@Test
 	void testAddTask() {
-		Task task = Task.builder()
-							 .title("Play baseball")
-							 .description("Go to college station with John")
-							 .dueDate(new Timestamp(System.currentTimeMillis()))
-							 .state(0)
-							 .build();
+		
+		Task task = new Task(null, 
+							"Play baseball", "Go to college station with John",
+							 new Timestamp(System.currentTimeMillis()),
+							 0);
+
 		
 		System.out.println(task);
 		Assert.assertEquals(1, mapper.addTask(task));
@@ -39,13 +39,10 @@ class TaskMapperTest {
 	
 	@Test
 	void testUpdateTask() {
-		Task task = Task.builder()
-							 .id(2L)
-							 .title("Play baseball")
-							 .description("Go to college station with John")
-							 .dueDate(new Timestamp(System.currentTimeMillis()))
-							 .state(0)
-							 .build();
+		Task task = new Task(2L, 
+							"Play baseball", "Go to college station with John",
+							new Timestamp(System.currentTimeMillis()),
+							0);
 		
 		System.out.println(task);
 		Assert.assertEquals(1, mapper.updateTask(task));
