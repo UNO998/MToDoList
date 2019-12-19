@@ -2,5 +2,5 @@ spring:
    datasource:
       driverClassName: com.mysql.jdbc.Driver
       url: jdbc:mysql:///mtodolist?useUnicode=true&characterEncoding=UTF-8
-      username: root
-      password: shenyiran
+      username: username
+      password: password
