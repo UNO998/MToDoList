@@ -32,8 +32,6 @@ One way is to execute the `main` method from your IDE.
 - Choose the Spring Boot Application file (search for @SpringBootApplication)
 - Right Click on the file and Run as Java Application
 
-Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) like so:
-
 ### Thymeleaf webs
 
 To monitor and manage your application
