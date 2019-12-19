@@ -100,4 +100,23 @@ public class TaskWebController {
 		return "redirect:/tasks/list";
 		
 	}
+	
+	@GetMapping("/search")
+	public String search(@RequestParam("title") String theTitle,
+						 @RequestParam("description") String theDescription,
+						 @RequestParam("dueDate") String theDueDate,
+						 @RequestParam("state") String theState,
+						 Model theModel) {
+		
+		List<Task> theTasks = 
+							taskService.searchTasksByKeywords(theTitle, theDescription, theDueDate, theState);
+		
+		// add to the spring model
+		theModel.addAttribute("tasks", theTasks);
+		
+		// send to list-tasks
+		return "tasks/list-tasks";
+		
+	}
+	
 }
