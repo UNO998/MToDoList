@@ -4,8 +4,6 @@ import java.sql.Timestamp;
 
 import javax.validation.constraints.NotNull;
 
-import lombok.Builder;
-import lombok.Data;
 
 /**
  * Created by Yiran in Dec. 19, 2019
