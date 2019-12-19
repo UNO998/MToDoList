@@ -1,6 +1,7 @@
 package com.yiran.mtodoList.mapperTest;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -67,5 +68,10 @@ class TaskMapperTest {
 	void testDeleteTaskById() {
 		Assert.assertEquals(1, mapper.deleteTaskById(2L));
 	}
-
+	
+	@Test
+	void testGetAllTasks() {
+		List<Task> taskList = mapper.getAllTasks();
+		Assert.assertEquals(6, taskList.size());
+	}
 }

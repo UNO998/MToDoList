@@ -24,4 +24,8 @@
         DELETE FROM task 
         WHERE id=#{id}  
     </delete>
+    
+    <select id="getAllTasks" resultType="com.yiran.mtodoList.bean.Task">
+        SELECT * FROM task
+    </select>
 </mapper>

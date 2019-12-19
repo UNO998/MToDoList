@@ -1,5 +1,7 @@
 package com.yiran.mtodoList.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.yiran.mtodoList.bean.Task;
@@ -19,4 +21,6 @@ public interface TaskMapper {
 	Task getTaskById(Long tid);
 	
 	int deleteTaskById(Long tid);
+	
+	List<Task> getAllTasks();
 }
